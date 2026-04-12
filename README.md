@@ -1,289 +1,175 @@
-# VELORA — Luxury in Every Delivery 🛒✨
+# Velora 🛒
 
-**VELORA** is a premium full-stack quick-commerce grocery delivery platform built using the **MERN stack**. The platform provides a seamless shopping experience with a luxury-inspired UI and a powerful backend for managing products, orders, and users.
+**Velora** is a full-stack quick-commerce grocery delivery platform built with the **MERN stack**. It provides a smooth shopping experience with a clean, modern UI and a solid backend for managing products, orders, and users.
 
-The application focuses on **performance, simplicity, and premium user experience**, combining modern frontend technologies with a scalable backend architecture.
-
-![Velora Tech Stack](https://img.shields.io/badge/Stack-MERN-blue?style=for-the-badge)
+![Stack](https://img.shields.io/badge/Stack-MERN-blue?style=for-the-badge)
 ![React](https://img.shields.io/badge/Frontend-React%20%2B%20Vite-61DAFB?style=for-the-badge&logo=react)
-![Tailwind](https://img.shields.io/badge/Styling-TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css)
 ![Node](https://img.shields.io/badge/Backend-Node.js%20%2B%20Express-339933?style=for-the-badge&logo=nodedotjs)
 ![MongoDB](https://img.shields.io/badge/Database-MongoDB-47A248?style=for-the-badge&logo=mongodb)
 
 ---
 
-# 📌 Project Vision
+## 📌 About
 
-VELORA aims to deliver everyday essentials through a **fast, elegant, and intuitive digital platform**. Unlike cluttered grocery marketplaces, VELORA focuses on:
-
-* Minimalistic design
-* Fast product discovery
-* Smooth checkout experience
-* Efficient inventory and order management
+Velora is a grocery delivery app focused on fast product discovery, a clean checkout flow, and easy order management. It includes both a customer-facing storefront and a protected admin panel.
 
 ---
 
-# 🌟 Core Features
+## ✨ Features
 
-## 👤 User Features
+### User Side
+- Browse **28 seeded grocery products** across multiple categories
+- Search and filter by category
+- Add to cart, update quantity, remove items
+- Checkout with delivery address
+- View order history
 
-### Premium UI / UX
-The interface uses a **midnight blue and champagne gold theme**, creating a luxury shopping experience. Custom fonts such as **Playfair Display** and **Inter** provide elegance and readability.
-
-Key UI characteristics:
-* Glassmorphism elements
-* Smooth animations
-* Mobile-first responsive layout
-* Clean product cards
-
-### 🛍 Product Discovery
-Users can browse **20+ seeded grocery products** categorized into:
-* Fresh Produce
-* Pantry Items
-* Beverages
-* Bakery
-
-The product discovery system includes:
-* Product grid layout
-* Category filters
-* Search functionality
-* Detailed product pages
-
-### 🛒 Dynamic Shopping Cart
-The cart system allows users to manage items efficiently.
-
-Features include:
-* Add to cart
-* Remove items
-* Increase or decrease quantity via interactive stepper
-* Dynamic price calculation
-* Persistent cart storage
-
-Cart updates automatically across the entire application, including:
-* Navbar cart badge
-* Product cards
-* Cart page totals
-
-### 💳 Checkout Flow
-The checkout process includes:
-1. Delivery address entry
-2. Cart review
-3. Order placement simulation
-
-Orders are then securely stored in the database, automatically deducting product stock.
-
-### 📦 Order History
-Users can view their past orders including:
-* Ordered items
-* Total price
-* Delivery address
-* Order status
-
-This allows users to track and review their purchase history.
+### Admin Panel
+- Dashboard with total revenue, orders, products, and low stock alerts
+- Full **CRUD** on products (add, edit, delete)
+- View and update order status (Pending → Processing → Delivered)
+- Payment status management
 
 ---
 
-# 👨‍💼 Administrator Features
+## 🛠 Tech Stack
 
-Administrators manage the platform through a protected admin dashboard.
+### Frontend (`/frontend`)
+- **React 18** with **Vite**
+- **React Router DOM v6**
+- **Vanilla CSS** (custom design system)
+- **Axios** with JWT interceptors
+- **React Context API** — `AuthContext`, `CartContext`
+- **react-hot-toast** for notifications
+- **React Icons**
 
-Admin features include:
-
-### Dashboard Overview
-Displays important metrics running in real-time such as:
-* Total Revenue
-* Total Orders
-* Total Products
-* Low Stock Alerts
-
-### Inventory Management
-Admins can perform **full CRUD operations** on products:
-* Create new products
-* Update product details
-* Delete products
-* Manage inventory stock
-
-These actions are performed through clean modal interfaces.
-
-### Order Management
-Admins can monitor incoming orders and update their status.
-
-Order states include:
-* Pending
-* Processing
-* Delivered
-
-Payment status can also be updated.
+### Backend (`/backend`)
+- **Node.js** + **Express.js**
+- **MongoDB** + **Mongoose**
+- **JWT** for authentication
+- **bcryptjs** for password hashing
+- **express-async-handler**
 
 ---
 
-# 🛠 Technology Stack
+## 📂 Project Structure
 
-## Frontend (`/frontend`)
-
-* **Language:** JavaScript (ES6+) and JSX
-* **Framework:** React 18 with **Vite** for fast development and optimized builds
-* **Routing:** React Router DOM (v6)
-* **Styling:** TailwindCSS v4
-* **State Management:** React Context API
-  * Contexts used: `AuthContext`, `CartContext`
-* **HTTP Client:** Axios with interceptors for automatic JWT token injection
-* **Icons:** React Icons (Heroicons)
-* **Notifications:** react-hot-toast
-
-## Backend (`/backend`)
-
-* **Language:** Node.js (JavaScript runtime)
-* **Framework:** Express.js
-* **Database:** MongoDB
-* **ODM:** Mongoose
-* **Authentication:** JSON Web Tokens (JWT)
-* **Password Security:** bcryptjs hashing
-* **Error Handling:** express-async-handler
-
----
-
-# 🧠 System Architecture
-
-VELORA follows a **three-layer architecture**:
-
-```text
-Client (React)
-      ↓
-API Layer (Express.js)
-      ↓
-Database (MongoDB)
 ```
-
-### Frontend Responsibilities
-* UI rendering & state management
-* Cart logic tracking
-* API communication handling via Axios
-* Authentication token storage keeping sessions alive
-
-### Backend Responsibilities
-* Business logic layer defining application rules (i.e. blocking orders containing out of stock items)
-* Database relations handling (saving relations inside MongoDB)
-* JSON Web Token issuance and verification
-* Error boundary logic and response formatting
-
----
-
-# 📂 Project Structure
-
-```text
-VELORA/
+Velora/
 ├── frontend/
 │   ├── src/
 │   │   ├── components/
 │   │   │   ├── layout/       # Navbar, Footer, AdminLayout
-│   │   │   ├── product/      # ProductCard, ProductGrid, Filters
-│   │   │   └── ui/           # Loader, EmptyState
+│   │   │   ├── home/         # CategoryGrid, PromoBanners
+│   │   │   ├── product/      # ProductCard, ProductCarousel
+│   │   │   └── ui/           # Loader, EmptyState, SearchBar, LocationModal
 │   │   ├── context/          # AuthContext.jsx, CartContext.jsx
 │   │   ├── hooks/            # useAuth.js, useCart.js
 │   │   ├── pages/            # Home, Login, Register, Cart, Checkout, Orders
 │   │   │   └── admin/        # AdminDashboard, AdminProducts, AdminOrders
-│   │   ├── services/         # api.js
-│   │   ├── App.jsx           # Includes Route guards (Protected & Admin routing)
+│   │   ├── services/         # api.js (Axios instance)
+│   │   ├── App.jsx           # Routes with auth & admin guards
 │   │   └── index.css
 │   ├── package.json
-│   └── vite.config.js        # Vite configurations (backend proxying)
+│   └── vite.config.js
 │
 └── backend/
-    ├── config/               # db.js
+    ├── config/               # db.js (MongoDB connection)
     ├── controllers/          # authController, productController, orderController
-    ├── middleware/           # authMiddleware, errorMiddleware
+    ├── middleware/            # authMiddleware, adminMiddleware, errorHandler
     ├── models/               # User.js, Product.js, Order.js
-    ├── routes/               # authRoutes, productRoutes, orderRoutes
-    ├── utils/                # generateToken.js
-    ├── serveServer.js        # Seed Logic
-    ├── server.js             # Main server entry & middleware execution
+    ├── routes/               # authRoutes, productRoutes, orderRoutes, uploadRoutes
+    ├── seed.js               # Database seeder
+    ├── server.js             # Express server entry point
     └── package.json
 ```
 
 ---
 
-# 🗄 Database Models
+## 🗄 Database Models
 
-## User Model
-Stores user information.
-Fields: `name`, `email`, `password` (hashed), `role`, `createdAt`
-* Roles determine whether the user is **admin or shopper**.
+### User
+`name`, `email`, `password` (hashed), `role` (admin/user), `createdAt`
 
-## Product Model
-Stores product information.
-Fields: `name`, `description`, `price`, `category`, `stock`, `image`, `createdAt`
+### Product
+`name`, `description`, `price`, `category`, `stock`, `image`, `createdAt`
 
-## Order Model
-Stores order details.
-Fields: `userId`, `products` (embedded array logic), `totalAmount`, `deliveryAddress`, `paymentStatus`, `orderStatus`, `createdAt`
+### Order
+`userId`, `products` (array), `totalAmount`, `deliveryAddress`, `paymentStatus`, `orderStatus`, `createdAt`
 
 ---
 
-# 🚀 Running the Project Locally
+## 🚀 Running Locally
 
-## Prerequisites
-You must have:
-* Node.js v18+
-* MongoDB Community Server running locally (port 27017)
+### Prerequisites
+- Node.js v18+
+- MongoDB running locally on port `27017`
 
-## Backend Setup
+### Backend Setup
 
-Navigate to backend folder:
 ```bash
 cd backend
 npm install
 ```
 
-Create `.env` file inside `/backend`:
+Create a `.env` file inside `/backend`:
+
 ```env
 PORT=5000
 MONGO_URI=mongodb://127.0.0.1:27017/velora
-JWT_SECRET=velorasecretkey2024
+JWT_SECRET=your_secret_key_here
 NODE_ENV=development
 ```
 
-Seed database:
+Seed the database:
+
 ```bash
 npm run seed
 ```
 
-Start server:
+Start the backend:
+
 ```bash
 npm run dev
 ```
-*(Backend runs at: `http://localhost:5000`)*
 
-## Frontend Setup
+> Backend runs at `http://localhost:5000`
 
-Open another terminal and navigate to `/frontend`:
+### Frontend Setup
+
+Open a new terminal:
+
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
-*(Frontend runs at: `http://localhost:3000`)*
+
+> Frontend runs at `http://localhost:3000`
 
 ---
 
-# 🔑 Default Admin Account
+## 🔑 Default Accounts
 
-* **Email**: `admin@velora.com`
-* **Password**: `admin123`
+| Role  | Email               | Password  |
+|-------|---------------------|-----------|
+| Admin | admin@velora.com    | admin123  |
+| User  | user@velora.com     | user1234  |
 
-*(Users can create their own accounts through the signup page).*
-
----
-
-# 📈 Future Improvements
-
-Potential upgrades include:
-* Real payment gateway integration (Stripe/Razorpay)
-* Real-time order tracking with WebSockets
-* Mobile app version (React Native)
-* AI-based product recommendations
-* Delivery partner system interface
+New users can also register through the signup page.
 
 ---
 
-💡 **For Reviewers / Interviewers**: Let's discuss our robust use of `AuthContext` and `CartContext` for centralized state management, how our Axios interceptors safely pass our JWT tokens, and how our `Mongoose` models interact securely with our `Express.js` API endpoints to provide a scalable quick-commerce architecture!
+## 📈 Future Plans
+
+- Payment gateway integration (Stripe / Razorpay)
+- Real-time order tracking with WebSockets
+- Product recommendation system
+- Mobile app (React Native)
+- Delivery partner management interface
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
