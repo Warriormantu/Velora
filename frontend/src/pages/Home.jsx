@@ -6,9 +6,7 @@ import PromoBanners from "../components/home/PromoBanners";
 import CategoryGrid from "../components/home/CategoryGrid";
 import ProductCarousel from "../components/product/ProductCarousel";
 
-/**
- * Home page — Blinkit style layout with Promo Banners, Category Grid, and Horizontal Product Carousels.
- */
+// Home page — Promo banners, category grid, and product carousels grouped by category
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);

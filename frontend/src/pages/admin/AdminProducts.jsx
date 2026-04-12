@@ -75,13 +75,8 @@ const AdminProducts = () => {
         headers: { "Content-Type": "multipart/form-data" },
       });
       
-      // Assuming backend is at localhost:5000, if not it will use relative path. 
-      // It's safer to use the full backend URL for images if they aren't external links.
-      const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
-      // Clean up api folder from base URL if present
-      const serverUrl = baseUrl.replace('/api', '');
-      
-      setForm({ ...form, image: `${serverUrl}${data.image}` });
+      const baseUrl = (import.meta.env.VITE_API_URL || "http://localhost:5000").replace("/api", "");
+      setForm({ ...form, image: `${baseUrl}${data.image}` });
       toast.success("Image uploaded!");
     } catch (error) {
       console.error(error);
